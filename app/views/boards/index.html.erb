@@ -1,0 +1,13 @@
+<div id="board_content">
+  jklsdfkljsdfkljdfsalkjfda
+<% @boards = Board.all %>
+<% @boards.each do |board| %>
+  <%= board.user['id'] %>
+  <% if board.user['id'] == current_user.id%>
+  <!-- <%= 'winner' %> -->
+  <script type="application/json" id="board_boots">
+    { "current_board": <%= board.to_json.html_safe %> }
+  </script>
+  <%end%>
+<%end%>
+</div>

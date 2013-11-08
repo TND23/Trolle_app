@@ -1,0 +1,20 @@
+// Place all the styles related to the root controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body{
+  background-color:#779ecb;
+}
+#content{
+  background-color: red;
+}
+#inTitle{
+    text-align:left;
+    color:yellow;
+    font-family: cursive;
+    font-size: 250%;
+}
+
+#navigator{
+  color: black;
+  background-color: black;
+}

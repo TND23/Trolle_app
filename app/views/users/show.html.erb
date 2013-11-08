@@ -1,0 +1,23 @@
+<div id="content">
+  <h2 id="welcome">Logged in as <%= @user.username.capitalize %></h2>
+  <!-- <%= current_user.to_json.html_safe%>  working-->
+  <script type="application/json" id="user_boots">
+    { "current_user": <%= current_user.to_json.html_safe %> }
+  </script>
+  <!-- <div id="user-info"> <% x = @user.id %> </div> -->
+  <!-- <div id="#{x}"> </div> reinventing the wheel -->
+  <% if @user.boards.nil? %>
+    <% action = user_url %>
+  <%else%>
+   
+    <% action = user_url %>
+  <%end%>
+  <form id="toBoard" action="<%= action %>" method="get">
+    <input type="submit" value="Visit Boards">
+  </form>
+  
+  <form id="signOut" action="" method="get">
+    <input type="submit" value="Sign Out">
+  </form>
+  
+</div>
