@@ -1,9 +1,13 @@
 <div id="content">
   <h2 id="welcome">Logged in as <%= @user.username.capitalize %></h2>
-  <!-- <%= current_user.to_json.html_safe%>  working-->
   <script type="application/json" id="user_boots">
     { "current_user": <%= current_user.to_json.html_safe %> }
   </script>
   
   <%= button_to "Logout", session_url, :method => :delete %>
 </div>
+<script>
+$(document).ready(function(){
+  TrolleApp.initialize();
+});
+</script>

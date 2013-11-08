@@ -1,12 +1,18 @@
 <div id="board_content">
-<% @boards = Board.all %>
-<% @boards.each do |board| %>
-  <%= board.user['id'] %>
-  <% if board.user['id'] == current_user.id%>
-  <!-- <%= 'winner' %> -->
-  <script type="application/json" id="board_boots">
-    { "current_board": <%= board.to_json.html_safe %> }
+
+
+  <% if current_user.boards.nil? %>
+  <script>
+    alert('You have not made any boards');
   </script>
+  <% else %>
+    <%= current_user.boards.each do |board| %>
+      <script>
+      
+      </script>
+    <script type="application/json" id="user_boards_boots">
+        { "user_boards": <%= current_user.boards.to_json.html_safe %> }
+    </script>
   <%end%>
-<%end%>
+
 </div>

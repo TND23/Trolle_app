@@ -7,22 +7,21 @@ class SessionsController < ApplicationController
       params[:user][:username],
       params[:user][:password]
     )
-
     if user.nil?
       render :json => "Credentials were wrong"
     else
       self.current_user = user
-      redirect_to user_board_url
+      redirect_to new_session_url
     end
   end
 
   def destroy
      current_user.reset_session_token!
      session[:session_token] = nil
-
      redirect_to new_session_url
    end
 
   def new
   end
+  
 end

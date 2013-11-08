@@ -1,5 +1,5 @@
-<% action = (@user.persisted? ? user_url(@user.id) : new_session_url) %>
-<% method = (@user.persisted? ? "put" : "get") %>
+<% action = (@user.persisted? ? user_url(@user.id) : users_url) %>
+<% method = (@user.persisted? ? "put" : "post") %>
 <% message = (@user.persisted? ? "Update user" : "Create user") %>
 
 <form action="<%= action %>" method="post">
@@ -28,3 +28,4 @@
 
   <input type="submit" value="<%= message %>">
 </form>
+

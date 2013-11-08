@@ -1,23 +1,19 @@
 TrolleApp.Routers.BoardRouter = Backbone.Router.extend({
   
-  initialize: function($rootEl){
-    this.$rootEl = $rootEl;
+  initialize: function(options){
+    
   },
   
   routes: {
     "/users/:user_id" : "index",   
-    "/users/:user_id/boards/:board_id" : "show"
+    "/users/:user_id/boards/:board_id" : "show",
+    "/users/:user_id/boards/" : "showIndex"
   },
   
   index: function(){
-    var boardForm = new TrolleApp.Views.Boards();
+    var boardForm = new TrolleApp.Views.BoardsIndex({ model: board });
     var renderedTemplate = boardForm.render();
-    console.log(renderedTemplate);
     $("#content").append(renderedTemplate.el);
   },
-  
-  show: function(){
-    
-  }
   
 });

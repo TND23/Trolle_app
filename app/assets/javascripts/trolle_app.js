@@ -4,27 +4,26 @@ window.TrolleApp = {
   Views: {},
   Routers: {},
   initialize: function() {
+    
     var $rootEl = $('#content');
     var visiting_user = JSON.parse($('#user_boots').html());
-    var boards = new TrolleApp.Models.Board(visiting_user);
+    console.log(visiting_user);
+    var board = new TrolleApp.Models.Board(visiting_user);
+    var boards = new TrolleApp.Collections.Boards();
+    boards.add(board);
     
-    boards.fetch({
-      success: function(response, model){
-        console.log(response);
-        console.log(model);
-        var boardRouter = new TrolleApp.Routers.BoardRouter(boards);
-        var homeRouter = new TrolleApp.Routers.HomeRouter($rootEl);
-        
-        console.log($(homeRouter.el))
+    board.fetch({
+      success: function(models, response){
+        //boardRouter doing anything?
+        console.log(models);
+        var boardRouter = new TrolleApp.Routers.BoardRouter();
+        var homeRouter = new TrolleApp.Routers.HomeRouter();
         Backbone.history.start();
       },
-      error: function(){
-        console.log("Oh no!");
+      error: function(model, response){
+        alert("fetching failed");
       }
     })
   }
 };
 
-$(document).ready(function(){
-  TrolleApp.initialize();
-});

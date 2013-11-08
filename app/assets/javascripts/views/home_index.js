@@ -4,22 +4,17 @@ TrolleApp.Views.HomeIndex = Backbone.View.extend({
 
   events: {
     'mouseover #toBoard' : 'hoverBoardEvent',
-    'click #toBoard' : 'boardEvent',
+    'click #toBoard' : 'showBoards',
     'click #toSettings' : 'settingsEvent',
     'click #toBin' : 'binEvent',
   },
   
   hoverBoardEvent: function(){
-    //hoverBoards: the future is now!
-    var id = JSON.parse($('#user_boots').html()).current_user['id'];
-    console.log(x);
-       
+    this.$el.html(JST['board/index']);
   },
   
-  boardEvent: function(){
-    var user_id = JSON.parse($('#user_boots').html()).current_user['id'];
-    var url = + user_id + '/boards'
-    window.location.replace(url);
+  showBoards: function(){
+    window.location.replace('/boards');
   },
   
   settingsEvent: function(){
@@ -27,6 +22,7 @@ TrolleApp.Views.HomeIndex = Backbone.View.extend({
   
   binEvent: function(){
   },
+  
  
   render: function(){
     var that = this;

@@ -1,6 +1,12 @@
-<h1>Sign In</h1>
+<% action = (@user.persisted? ? user_url(@user.id) : users_url) %>
+<% method = (@user.persisted? ? "put" : "post") %>
+<% message = (@user.persisted? ? "Update user" : "Create user") %>
 
-<form action="<%= session_url %>" method="post">
+<form action="<%= action %>" method="post">
+  <input
+     name="_method"
+     type="hidden"
+     value="<%= method %>">
   <input
      name="authenticity_token"
      type="hidden"
@@ -20,17 +26,5 @@
      type="password">
   <br>
 
-  <input type="submit" value="Log in">  
+  <input type="submit" value="<%= message %>">
 </form>
-
-<h4> New User? Create an Account here: </h4>
-
-<form action="<%= new_user_url %>" method="post">
-  <input type="submit" value="Create an account">
-</form>
-
-<script>
-$(document).ready(function(){
-  TrolleApp.initialize();
-});
-</script>
