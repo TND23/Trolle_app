@@ -12,7 +12,6 @@ TrolleApp.Routers.BoardRouter = Backbone.Router.extend({
   index: function(){
     var boardForm = new TrolleApp.Views.Boards();
     var renderedTemplate = boardForm.render();
-    alert("GODKL")
     console.log(renderedTemplate);
     $("#content").append(renderedTemplate.el);
   },

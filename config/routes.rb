@@ -15,5 +15,5 @@ TrolleApp::Application.routes.draw do
   
   resource :session, :only => [:create, :destroy, :new]
   
-  root to: "root#root"
+  root to: "sessions#new"
 end

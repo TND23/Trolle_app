@@ -1,6 +1,7 @@
 <h1>Sign In</h1>
+<%= current_user %>
 
-<form action="<%= user_url(1) %>" method="post">
+<form action="<%= user_url(1) %>" method="get">
   <input
      name="authenticity_token"
      type="hidden"
@@ -27,6 +28,6 @@
 
 <h4> New User? Create an Account here: </h4>
 
-<!-- <form action="<%= users_url %>" method="post">
+<form action="<%= users_url %>" method="post">
   <input type="submit" value="Create an account">
-</form> -->
+</form>
