@@ -22,3 +22,10 @@
 	border:1px solid #84bbf3;
 	color:#ffffff;
 }
+
+.board_holder{
+  height: 200px;
+  width: 550px;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #bddbfa), color-stop(1, #80b5ea) );
+	background-color:#bddbfa;
+}

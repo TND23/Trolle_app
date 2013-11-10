@@ -9,12 +9,13 @@ class UsersController < ApplicationController
       self.current_user = @user
       redirect_to user_url(@user)
     else
-      render :json => @user.errors.full_messages
+      redirect_to new_user_url
     end
   end
 
   def new
     @user = User.new
+    redirect_to users_url
   end
 
   def show

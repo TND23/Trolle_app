@@ -1,11 +1,12 @@
 TrolleApp.Routers.HomeRouter = Backbone.Router.extend({
   
   initialize: function($rootEl){
-    
+    console.log('the home router has been initialized');
   },
   
   routes: {
-    "" : "index"   
+    "" : "index",
+    "/boards" : 'thing'
   },
   
   index: function(){
@@ -15,4 +16,8 @@ TrolleApp.Routers.HomeRouter = Backbone.Router.extend({
     $("#content").append(renderedHome.el);
   },
   
+  thing: function(){
+    alert('the boards routes has been seen from the home router');
+  }
+    
 });
