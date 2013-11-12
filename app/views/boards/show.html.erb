@@ -1,13 +1,3 @@
-<% if current_user.boards.nil? %>
-  <script>
-    alert('You have not made any boards');
-  </script>
-<% else %>
-  <% current_user.boards.each do |board| %>
-    <div class="boards_all">
-    <div id= <%="board_#{board.id}"%> > </div>
-    <script type="application/json" id="user_boards_boots">
-      { "user_boards": <%= current_user.boards.to_json.html_safe %> }
-    </script>
-  <%end%>
-<%end%>
+<div id="board_show"> </div>
+
+ 

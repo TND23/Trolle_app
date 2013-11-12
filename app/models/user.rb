@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
-  attr_accessible :username, :password
+  attr_accessible :username, :password, :boards
+  attr_accessor :board
   attr_reader :password
  
   validates :password_digest, :presence => { :message => "Password can't be blank" }
@@ -8,23 +9,27 @@ class User < ActiveRecord::Base
    validates :session_token, :presence => true
    validates :username, :presence => true
 
-
    after_initialize :ensure_session_token
    has_many :boards
-   
 
+   
    def self.find_by_credentials(username, password)
      user = User.find_by_username(username)
      return nil if user.nil?
      user.is_password?(password) ? user : nil
    end
    
-   def owns_board?(board)
-     board.user.id == self.id
-   end
-
    def self.generate_session_token
      SecureRandom::urlsafe_base64(16)
+   end
+   
+   def update_board_ids
+     @board_ids = self.board_id || {}
+     @boards = self.boards
+     @boards.each do |board|
+       @board_ids[board.boardtitle] = board.id
+     end
+     @board_ids
    end
 
    def is_password?(password)

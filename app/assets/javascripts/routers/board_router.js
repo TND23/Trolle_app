@@ -1,20 +1,31 @@
-TrolleApp.Routers.BoardRouter = Backbone.Router.extend({
-  
-  initialize: function($rootEl){
-    console.log('the board router has been initialized')
-  },
-  
-  routes: {
-    "/users/:user_id/boards/" : "showIndex",
-    "" : "index",
-    "/boards" : "showBoards"
-  },
-    
-  showBoards: function(){
-    alert('the /boards route has been seen by the board router');
-  },  
-  
-  index: function(){
-    alert('the / route has been seen by the board router');
-  }
-});
+// TrolleApp.Routers.BoardRouter = Support.SwappingRouter.extend({
+//   
+//   initialize: function(user, $rootEl, boards){
+//     // console.log('the board router has been initialized')
+//     this.user = user;
+//     this.$rootEl = $rootEl;
+//     this.boards = boards; 
+//   },
+//   
+//   routes: {
+//      ":id" :"doThing",
+//   },
+//   
+//   doThing: function(){
+//     alert('called')
+//     var that = this;
+//     var boardView = new TrolleApp.Views.BoardIndex({collection: that.boards});
+//     $('.board_content').append(boardView.render());
+//   },
+//   
+//   whatEver: function(){
+//     console.log("undefined");
+//   },
+//   
+//   showBoard: function(){
+//     alert('showboard called')
+//     var that = this;
+//     var boardView = new TrolleApp.Views.BoardIndex({collection: that.boards});
+//     $('.board_content').append(boardView.render());
+//   }    
+// });

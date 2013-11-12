@@ -1,10 +1,13 @@
 class BoardsController < ApplicationController
+
   def index
-    @boards = Board.all
+    user = current_user
+    @boards = user.update_board_ids
   end
   
   def show
-    @boards = Board.all
+    user = current_user
+    @boards = user.update_board_ids
     render :json => @boards
   end
 end

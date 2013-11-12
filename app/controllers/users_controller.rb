@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(params[:user])
-
+    @user.board_id = false
     if @user.save
       self.current_user = @user
       redirect_to user_url(@user)
@@ -19,6 +19,11 @@ class UsersController < ApplicationController
   end
 
   def show
+    @board_ids = current_user.board_id || {}
+    current_user.boards.each do |board|
+      @board_ids[board.boardtitle] = board.id
+    end
+    current_user.board_id = @board_ids
     if params.include?(:id)
       @user = User.find(params[:id])
     else

@@ -1,16 +1,13 @@
 TrolleApp.Views.BoardIndex = Backbone.View.extend({
   
-  template: JST['board/board_index'],
-
+  template: JST['boards/index'],
   events: {
 
   },
 
-  
   render: function(){
-    var that = this;
-    console.log(that);
-    $(this.el).append(this.template);
-    return this;
+    var that = this;    
+    var renderedContent = JST['boards/index']({boards: that.collection});
+    return renderedContent;
   }
 });

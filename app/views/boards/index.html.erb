@@ -1,18 +1,24 @@
-<div class="board_content">
-  
-  <% if current_user.boards.nil? %>
-  <script>
-    alert('You have not made any boards');
-  </script>
-  <% else %>
-    <% current_user.boards.each do |board| %>
-      <div class="boards_all">
-        <div id= <%="board_#{board.id}"%> > </div>
-        <script type="application/json" id="user_boards_boots">
-          { "user_boards": <%= current_user.boards.to_json.html_safe %> }
-        </script>
-      <%end%>
-    <%end%>
+<div id="nav_container">
+  <nav class="ink-navigation hide-small">
+    <ul class="menu horizontal flat rounded shadowed grey" id="menu">
+      <li><a href="#jeromey">Item</a></li>
+      <i class="icon-adjust"></i>
+      <li><a href="#boards">My Boards</a>
+        <ul class="submenu">
+        <% current_user.boards.each do |board|%>
+          <li id="board<%= "#{board.id}" %>"> 
+            <a href="#/board/<%="#{board.id}"%>"> <%= board.boardtitle %> </a> 
+          </li>
+        <% end%>
+        
+      </ul>
+    </ul>
+  </nav>
+</div>
 
+<div class="board_content">
+  <div class="list">
+  
   </div>
 </div>
+

@@ -10,7 +10,18 @@
  *
  *= require_self
  *= require_tree .
+ *= require ink
+ *= require ink-min
  */
+
+.ink-navigation ul.menu.rounded.horizontal li ul.submenu li {
+border-top-right-radius: 0;
+border-top-left-radius: 0;
+border-bottom-right-radius: 0;
+border-bottom-left-radius: 0;
+background-color: blanchedalmond;
+cursor: -webkit-grab;
+}
 
 .main-buttons {
   padding-top: 45px;

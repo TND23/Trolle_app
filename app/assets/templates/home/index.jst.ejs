@@ -2,10 +2,13 @@
 
   <div class="main-buttons">
   
-    <button id="toBoard">Navigate To Your Boards</button>
-
+  <% var current_id = user['id']; %>
+  <% var end_url = current_id + "/boards"; %>
+    
+    <a href="#boards"  id="toBoard">Visit Your Boards</a>
+  
     <button id="toSettings">Modify Your Settings</button>
-
+    
     <button id="toBin">Check Out Your Bin</button>
   
   </div>

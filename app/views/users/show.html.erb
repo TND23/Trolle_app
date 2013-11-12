@@ -1,16 +1,32 @@
-<div id="content">
+<nav class="ink-navigation hide-small">
+  <ul class="menu horizontal flat rounded shadowed grey" id="home_menu">
+    <li><a href="#">Item</a></li>
+    <li><a href="#">Item2</a></li>
+  </ul>
+</nav>
 
+<div id="content">
   <h2 id="welcome">Logged in as <%= @user.username.capitalize %></h2>
   <script type="application/json" id="user_boots">
     { "current_user": <%= current_user.to_json.html_safe %> }
   </script>
   
+  <% boards = @user.update_board_ids %>
+  
+  <script type="application/json" id="user_board_boots">
+    { "user_boards": <%= boards.to_json.html_safe %> }
+  </script>
+  
   <%= button_to "Logout", session_url, :method => :delete %>
+  
 </div>
+
+<div id="lowerContent">
+  
+</div>
+
 <script>
 $(document).ready(function(){
   TrolleApp.initialize();
 });
 </script>
-<div id="lowerContent">
-</div>

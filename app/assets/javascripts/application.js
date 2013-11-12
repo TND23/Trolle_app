@@ -12,8 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.serializeJSON
 //= require underscore
 //= require backbone
+//= require backbone-support
 //= require trolle_app
 //= require_tree ../templates
 //= require_tree ./models

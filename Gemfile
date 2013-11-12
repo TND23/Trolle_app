@@ -17,6 +17,8 @@ group :development do
   gem 'backbone-on-rails'
   gem 'better_errors'
 end
+gem 'backbone-support'
+
 gem 'binding_of_caller'
 
 gem 'bcrypt-ruby', :require => 'bcrypt'
