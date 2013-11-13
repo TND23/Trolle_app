@@ -7,7 +7,8 @@ TrolleApp.Views.BoardIndex = Backbone.View.extend({
   
   template: JST['boards/index'],
   events: {
-    "click #createBoards" : "createBoard",
+    "click #boardForm" : "showBoardForm",
+    "click #createBoard" : "submitBoard",
   },
 
   render: function(){
@@ -17,10 +18,19 @@ TrolleApp.Views.BoardIndex = Backbone.View.extend({
     return this;
   },
   
-  createBoard: function(){
+  showBoardForm: function(){
+    // /users/:user_id/boards
+    //we want to have this guy append the form to the bottom of this
+    //part of the nav bar.
     var that = this;
-    var createdBoard = new TrolleApp.Models.Board(that.user);
-    $('#board_content').append(JST['boards/new']({user: that.user}));
+    $('#menu').append(JST['boards/new']({user: that.user}))
+    // var that = this;
+ //    var createdBoard = new TrolleApp.Models.Board(that.user);
+ //    $('#board_content').append(JST['boards/new']({user: that.user}));
   },  
+  
+  submitBoard: function(){
+    
+  }
   
 });

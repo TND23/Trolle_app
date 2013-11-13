@@ -1,10 +1,12 @@
-<div id="myBoard">
-  <%= user.username + "'s new board" %>
-  <div class="ink-grid">
-    <div class="column-group">
-      <div class="large-33"><a id="toDo">To Do:</a></div>
-      <div class="large-33"><a id="doing">Doing:</a></div>
-      <div class="large-33"><a id="done">Done:</a></div>
-    </div>
-  </div>
-</div>
+<% var url = "/users/" + user.id + "/boards" %>
+<%= console.log(url) %>
+<form class="ink-form" id="newBoard" action=<%=url%> method="post">
+  <label for="form_name">Form Name:</label>
+  <input
+  id="board_boardtitle"
+  name"board[boardtitle]"
+  type="text">
+  <input id="createBoard" type="submit" value="Create Board">
+
+</form>
+

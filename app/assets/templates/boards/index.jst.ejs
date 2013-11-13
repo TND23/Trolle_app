@@ -5,13 +5,13 @@
   <nav class="ink-navigation hide-small">
     <ul class="menu horizontal flat rounded shadowed grey" id="menu">
       <li><a id="jeromey">Item</a></li>
-      <li><a id="createBoards">My Boards</a>
+      <li><a id="boardList">My Boards</a>
         <ul class="submenu">
         <% for(var i = 0; i < boards.length; i++){ %>
           <li> <button id="board<%= boards[i].id%>"><%= boards[i].boardtitle %></a> </button>
         <% } %>
         </ul>
-        <li><a id="createBoards">Create New Board</a></li>
+        <li><a id="boardForm">Create New Board</a></li>
       </ul>
     </ul>
   </nav>

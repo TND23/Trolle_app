@@ -12,6 +12,7 @@ class BoardsController < ApplicationController
   end
   
   def create
+    user = current_user
     @board = Board.new
   end
   
