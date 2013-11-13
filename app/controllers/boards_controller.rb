@@ -2,7 +2,6 @@ class BoardsController < ApplicationController
 
   def index
     user = current_user
-    
     @boards = user.boards
   end
   

@@ -18,7 +18,9 @@ TrolleApp.Views.BoardIndex = Backbone.View.extend({
   },
   
   createBoard: function(){
-    alert('clicked');
+    var that = this;
+    var createdBoard = new TrolleApp.Models.Board(that.user);
+    $('#board_content').append(JST['boards/new']({user: that.user}));
   },  
   
 });

@@ -19,11 +19,6 @@ class UsersController < ApplicationController
 
   def show
     @user = self.current_user
-    # @board_ids = current_user.board_ids(@user) || {}
-    # current_user.boards.each do |board|
-    #   @board_ids[board.boardtitle] = board.id
-    # end
-    # current_user.board_id = @board_ids
     if params.include?(:id)
       @user = User.find(params[:id])
     else

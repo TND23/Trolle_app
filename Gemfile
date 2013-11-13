@@ -1,26 +1,23 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.14'
-
+gem 'backbone-support'
+gem 'bcrypt-ruby', :require => 'bcrypt'
+gem 'binding_of_caller'
+gem 'ejs'
+gem 'font-awesome-rails'
+gem 'jquery-rails'
+gem 'oj'
 gem 'pg'
+gem 'rabl'
+gem 'rails', '3.2.14'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-
   gem 'uglifier', '>= 1.0.3'
 end
-
-gem 'jquery-rails'
 
 group :development do
   gem 'backbone-on-rails'
   gem 'better_errors'
 end
-gem 'backbone-support'
-gem 'font-awesome-rails'
-gem 'binding_of_caller'
-
-gem 'bcrypt-ruby', :require => 'bcrypt'
-gem 'ejs'
-
