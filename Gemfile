@@ -18,7 +18,7 @@ group :development do
   gem 'better_errors'
 end
 gem 'backbone-support'
-
+gem 'font-awesome-rails'
 gem 'binding_of_caller'
 
 gem 'bcrypt-ruby', :require => 'bcrypt'

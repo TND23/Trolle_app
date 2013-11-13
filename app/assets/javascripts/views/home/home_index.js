@@ -1,9 +1,8 @@
 TrolleApp.Views.HomeIndex = Backbone.View.extend({
   
-  initialize: function(user, $rootEl, boards){
+  initialize: function(user, user_boards){
     this.user = user;
-    this.$rootEl = $rootEl;
-    this.boards = boards; 
+    this.user_boards = user_boards;
   },
   
   template: JST['home/index'],
@@ -20,16 +19,17 @@ TrolleApp.Views.HomeIndex = Backbone.View.extend({
     'click #toBin' : 'goToBin',
     'mouseover #toBin' : 'showBin',
     'mouseout #toBin' : 'hideBin',    
+    
+    'mouseover #board_content' : 'highlight',
   },
   
   //authenticity token visible
-  showBoards: function(){
+  showBoards: function(){    
     //if the board holder is present, do nothing. Otherwise show it.
     if($('.board_holder').length > 0){
     } else {
       $('#lowerContent').append(JST['boards/show']);      
     } 
-   // console.log(this.user.model.current_user['id'])
   },
   
   hideBoards: function(){
@@ -40,34 +40,27 @@ TrolleApp.Views.HomeIndex = Backbone.View.extend({
   
   goToBoards: function(){
     //remove all BB elements, change router, add new BB content
-    $('.board_holder').remove();
-    var that = this;
-    this.off();
-    this.remove();
-    var id = this.user.model.current_user['id'];
-    var theForm = JST['boards/index'];
-    $('#lowerContent').remove();
-    $('#content').append(theForm)
-    // window.location=(id+"/boards")
-  },
-  
-  goToBin: function(){
-    
-    var id = this.user.model.current_user.id
-    window.location = id+"/boards"
-    
-    $('.board_holder').remove();
     var that = this;
     this.off();
     this.remove();    
+    var current_id = this.user.model['id'];
+    window.location = current_id+'/boards'
   },
-
+  
+  highlight: function(){
+    alert('highlighted');
+  },
+  
+  goToBin: function(){
+  
+  },
   
   render: function(){
     // ensure content only rendered if it doesn't exist
     var that = this;
     if($(".main-buttons").length === 0){
-      $(this.el).append(this.template({user: that.user.model.current_user}));
+      $(this.el).append(this.template({user: that.user}));
+      console.log($(this.el))
     }
     return this;
   }

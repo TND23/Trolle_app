@@ -1,24 +1,16 @@
-<div id="nav_container">
-  <nav class="ink-navigation hide-small">
-    <ul class="menu horizontal flat rounded shadowed grey" id="menu">
-      <li><a href="#jeromey">Item</a></li>
-      <i class="icon-adjust"></i>
-      <li><a href="#boards">My Boards</a>
-        <ul class="submenu">
-        <% current_user.boards.each do |board|%>
-          <li id="board<%= "#{board.id}" %>"> 
-            <a href="#/board/<%="#{board.id}"%>"> <%= board.boardtitle %> </a> 
-          </li>
-        <% end%>
-        
-      </ul>
-    </ul>
-  </nav>
-</div>
-
-<div class="board_content">
+<div id="board_content">
   <div class="list">
-  
   </div>
 </div>
 
+<script>
+// we need to throw the board in here :O ... is it visible from the controller??
+
+var current_user = <%= current_user.to_json.html_safe %>;
+var router_option = 2;
+var user_boards = <%= current_user.boards.to_json.html_safe %>;
+
+$(document).ready(function() {
+  TrolleApp.initialize(current_user, router_option, user_boards);
+});
+</script>

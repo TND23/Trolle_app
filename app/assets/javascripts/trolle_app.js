@@ -3,19 +3,37 @@ window.TrolleApp = {
   Collections: {},
   Views: {},
   Routers: {},
-  initialize: function() {
-    
+  initialize: function(currentUser, routerOption, currentBoards) {
+    var currentUser = currentUser;
     //grab the root element
     var $rootEl = $('#content');
+    var routerOption = routerOption || 1;
     //get the current user
-    var visiting_user = JSON.parse($('#user_boots').html());
-    var user_boards = JSON.parse($('#user_board_boots').html()).user_boards;
+   
+    var visiting_user = currentUser || JSON.parse($('#user_boots').html()).current_user;
+    
+    // there is no board when there isn't the bootstrap element. fix this.
+    if($('#user_board_boots').length > 0){
+      var user_boards = JSON.parse($('#user_board_boots').html()).user_boards;
+    } else {
+      user_boards = currentBoards;
+    }
+    
     //insert a board instance into the boards collection
-    var board = new TrolleApp.Models.Board(visiting_user); //[]
+    if(visiting_user){
+      var board = new TrolleApp.Models.Board(visiting_user);
+    }
+      
     // boards.add(user_boards);
     board.fetch({
       success: function(){
-        var homeRouter = new TrolleApp.Routers.HomeRouter($rootEl, user_boards, visiting_user);
+        if (routerOption == 1) { 
+          var homeRouter = new TrolleApp.Routers.HomeRouter([visiting_user, user_boards]); }
+        if (routerOption == 2){
+          var boardRouter = new TrolleApp.Routers.BoardRouter([currentUser, user_boards]);
+
+        }
+
         Backbone.history.start();
       },
       error: function(model, response){

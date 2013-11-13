@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
    validates :username, :presence => true
 
    after_initialize :ensure_session_token
+
    has_many :boards
 
    
@@ -23,15 +24,11 @@ class User < ActiveRecord::Base
      SecureRandom::urlsafe_base64(16)
    end
    
-   def update_board_ids
-     @board_ids = self.board_id || {}
-     @boards = self.boards
-     @boards.each do |board|
-       @board_ids[board.boardtitle] = board.id
-     end
-     @board_ids
+   def board_ids(username)
+    current_user = User.find_by_username(username)
+    current_user.boards.to_json
    end
-
+  
    def is_password?(password)
      BCrypt::Password.new(self.password_digest).is_password?(password)
    end

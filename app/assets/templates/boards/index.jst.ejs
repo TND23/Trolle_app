@@ -1,20 +1,18 @@
+<% var boards = boards %>
+
+
 <div id="nav_container">
   <nav class="ink-navigation hide-small">
     <ul class="menu horizontal flat rounded shadowed grey" id="menu">
-      <li><a href="#jeromey">Item</a></li>
-      <i class="icon-adjust"></i>
-      <li><a href="#boards">My Boards</a>
+      <li><a id="jeromey">Item</a></li>
+      <li><a id="createBoards">My Boards</a>
         <ul class="submenu">
-      </li>
-        
+        <% for(var i = 0; i < boards.length; i++){ %>
+          <li> <button id="board<%= boards[i].id%>"><%= boards[i].boardtitle %></a> </button>
+        <% } %>
+        </ul>
+        <li><a id="#createBoards">Create New Board</a></li>
       </ul>
     </ul>
   </nav>
 </div>
-
-<div class="board_content">
-  <div class="list">
-  
-  </div>
-</div>
-

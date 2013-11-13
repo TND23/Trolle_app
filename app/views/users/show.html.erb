@@ -7,17 +7,17 @@
 
 <div id="content">
   <h2 id="welcome">Logged in as <%= @user.username.capitalize %></h2>
+  
   <script type="application/json" id="user_boots">
     { "current_user": <%= current_user.to_json.html_safe %> }
   </script>
   
-  <% boards = @user.update_board_ids %>
-  
   <script type="application/json" id="user_board_boots">
-    { "user_boards": <%= boards.to_json.html_safe %> }
+    { "user_boards": <%= current_user.boards.to_json.html_safe %> }
   </script>
   
   <%= button_to "Logout", session_url, :method => :delete %>
+  
   
 </div>
 
