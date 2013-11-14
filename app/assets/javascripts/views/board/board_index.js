@@ -25,8 +25,9 @@ TrolleApp.Views.BoardIndex = Backbone.View.extend({
     $('#menu').append(JST['boards/new']({user: that.user}))
   },  
   
-  showBoard: function(){
-    alert('clicked');
+  submitBoard: function(){
+    var that = this;
+    
   }
   
 });

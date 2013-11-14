@@ -6,11 +6,11 @@ TrolleApp.Routers.BoardRouter = Support.SwappingRouter.extend({
   },
   
   routes: {
-    "" : "show",
+    "" : "index",
     ":id" : "findBoard",
   },
   
-  show: function(){
+  index: function(){
     var that = this;
     var user_boards = this.user_boards;       
     var visiting_user = this.visiting_user;
@@ -19,39 +19,25 @@ TrolleApp.Routers.BoardRouter = Support.SwappingRouter.extend({
   },
   
   findBoard: function(id){
-    // board id
+    var that = this;
     this.id = id;
     
-    for (var i = 0; i < user_boards.length; i++){
-      if (user_boards[i].id == this.id){
-        var current_board = user_boards[i];
-        var boardDisplay = new TrolleApp.Views.BoardShow(current_board);
-        $('#board_content').append(boardDisplay.render().el);
+    $.ajax({
+      url: "/users/1/boards/"+that.id+".json", 
+      type:"GET", 
+      success: function(data){
+        displayResult(data);}
+    });
+    
+    var displayResult = function(data){   
+      for (var i = 0; i < user_boards.length; i++){
+        if (user_boards[i].id == that.id){
+          var current_board = user_boards[i];
+          var boardDisplay = new TrolleApp.Views.BoardShow({model: current_board}, data);
+          $('#board_content').append(boardDisplay.render().el);
+        }      
       }
     }
   }  
-  // board id
-  // this.id = id;
-//   var that = this;
-//   this.board_data = [];
-//   var ajaxHash = {
-//     url: "/users/1/boards.json", 
-//     type:"GET", 
-//     success: function(data){
-//       return data;
-//     }
-//     function callback(){
-//       console.log('goat')l
-//     };
-//   };
-//     for (var i = 0; i < user_boards.length; i++){
-//       if (user_boards[i].id == this.id){
-//         var current_board = user_boards[i];
-//         var boardDisplay = new TrolleApp.Views.BoardShow(current_board);
-//         $('#board_content').append(boardDisplay.render().el);
-//     }
-//   }
-  
-  
-        
+     
 });

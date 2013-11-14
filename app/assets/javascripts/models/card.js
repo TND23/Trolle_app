@@ -1,18 +1,17 @@
 TrolleApp.Models.Card = Backbone.Model.extend({
  
-  initialize: function(list){
-    this.list = list;    
+  initialize: function(parent_list){
+    this.parent_list = parent_list;    
   },
-  
+
   defaults: {
-    title: "List",
-    user_id: (this.visiting_user === undefined)? 0 : this.visiting_user['id']
+    title: "Card"
   },
 
   urlRoot: function(list){
     var that = this;
-    var id = this.attributes['id'];    
-    var url = '/users/' + id + '/boards';
+    var list_id = this.parent_list.id;    
+    var url = '/lists/' + list_id + '/cards';
     return url;
   }  
 });

@@ -3,8 +3,6 @@ TrolleApp.Routers.HomeRouter = Support.SwappingRouter.extend({
   initialize: function(options){ 
     this.visiting_user = options[0];
     this.user_boards = options[1];
-    // board is not passed from trolle_app
-    console.log(this.user_boards)
   },
   
   routes: {

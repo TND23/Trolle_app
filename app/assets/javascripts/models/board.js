@@ -14,5 +14,9 @@ TrolleApp.Models.Board = Backbone.Model.extend({
     var id = this.attributes['id'];    
     var url = '/users/' + id + '/boards';
     return url;
+  },
+  
+  doThing: function(){
+    alert('success');
   }  
 });

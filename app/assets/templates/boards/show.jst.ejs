@@ -1,9 +1,20 @@
 <div id="visible_board">
-  <%= board %>
-  <%= board.lists %>
   <div class="lists">
-    <div class="cards">
+    <% for (var i = 0; i < data.lists.length; i++){%>
+      <div id="list<%= data.lists[i].id%>">
+        <%= data.lists[i].listtitle %>
+        <% var cards = data.lists[i].cards %>
+        <% if(cards.length > 0){ %>
+          <% for(var j = 0; j < cards.length; j++){%>
+            <div class="cards">
+              <div id="cards<%=cards[j].id%>">
+                <%= cards[j].cardtitle%>
+              </div>
+            </div>
+          <%}%>
+        <%}%>
+      </div>
+    <%};%>
     
-    </div>
   </div>
 </div>
