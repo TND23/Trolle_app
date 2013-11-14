@@ -11,6 +11,52 @@ background-color: blanchedalmond;
 cursor: -webkit-grab;
 }
 
+.ink-form{
+height: 400px;  
+line-height: 2;
+margin-bottom: 1em;
+margin-left: 2em;
+}  
+
+.ink-button{
+  
+}
+
+#trolleWelcome{
+  background: lightsteelblue;
+  border-bottom: 0;
+  padding-top: 0;
+  margin: 0;
+}
+
+#joinUs{
+  background-color: white;
+}
+
+#createAccount{
+  background-color: #63ACD1;
+}
+
+#raveReviews{
+  height: 300px;
+  background-color: #888;
+}
+
+
+#imageLogo{
+  height: 75px;
+  background: url('trollface_small.png');
+  width: 75px;
+  background-repeat: no-repeat;
+  float: right;
+}
+
+#welcomeLogo{
+  float:right;
+  font-family: fantasy;
+  font-size: larger;
+}
+
 .main-buttons {
   padding-top: 45px;
   padding-left: 35px;
@@ -59,6 +105,7 @@ cursor: -webkit-grab;
    left: 100;
    top: 100;
    z-index: 3;
+   background: url('trollface.png'); 
  }
 #log_in_container{
   background-color: aliceblue;

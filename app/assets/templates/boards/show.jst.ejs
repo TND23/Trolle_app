@@ -1,4 +1,22 @@
+<% var url = "/boards/" + board.model.id + "/lists" %>
 <div id="visible_board">
+<nav class="ink-navigation hide-small">
+  <ul class="menu horizontal flat rounded shadowed grey" id="home_menu">
+    <li><a href="#">Add List</a></li>
+    <li><a href="#">Item2</a></li>  
+    <form class="ink-form" id="listForm" action=<%=url%> method="post">
+    <label for="list_listtitle">New List Name</label>
+    <input
+    id="list_listtitle"
+    name="list[listtitle]"
+    type="text">
+    <input id="createList" type="submit" value="Create List">
+    
+  </ul>
+</nav>
+  <div id="boardTitle">
+    <%= board.model.boardtitle %>
+  </div>
   <div class="lists">
     <% for (var i = 0; i < data.lists.length; i++){%>
       <div id="list<%= data.lists[i].id%>">

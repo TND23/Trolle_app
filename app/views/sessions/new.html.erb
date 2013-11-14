@@ -1,51 +1,69 @@
+<section id="trolleWelcome">
 <div class="ink-grid">
   <header>
-    <h1>Sign In</h1>
+    <h1>Hello Guest
+      <div id="imageLogo">
+      </div>
+      <div id="welcomeLogo">
+        Welcome To Trolle
+      </div>
+    </h1>
     <nav class="ink-navigation vspace">
       <ul class="menu horizontal flat rounded shadowed grey" id="home_menu">
         <div class="large-5" ></div>
         <li id="tour" class="large-20"><a href="#tour">Website Tour</a></li>
-        <li id="about" class="large-20"><a href="#about">About the Author</a> 
-      
+        <li id="about" class="large-20"><a href="#about">About the Author</a>  
         </li>
         <li class="large-20">
           <a href="#contact">
-            <i class="icon-envelope"></i> Contact
+            <i class="icon-envelope"></i>Contact
           </a>
         </li>  
+        <li id="siteInfo" class="large-20"><a href="#aboutSite">About the Site</a></li>
       </ul>  
     </nav>
   </header>
-  <!-- <div class="column-group half-gutters" id="log_in_container">   -->
-    
-  <div class="column-group half-gutters">
-    <form class="ink-form large-50 medium-50 small-100" action="<%= session_url %>" method="post">
-      <input
-         name="authenticity_token"
-         type="hidden"
-         value="<%= form_authenticity_token %>">
+</div>
+</section>
 
-      <label for="user_username" class="large-20">Username</label>
-      <input
-         id="user_username"
-         name="user[username]"           
-         type="text">
-      <br>
+<section id="joinUs">
+  <div class="ink-grid">
+    <h4>Sign in</h4>
+    <div class="column-group half-gutters">
+      <form class="ink-form large-50 medium-50 small-50" action="<%= session_url %>" method="post">
+        <input
+           name="authenticity_token"
+           type="hidden"
+           value="<%= form_authenticity_token %>">
+
+        <label for="user_username" class="large-20">Username</label>
+        <input
+           id="user_username"
+           name="user[username]"           
+           type="text">
+        <br>
     
-      <label for="user_password">Password</label>
-      <input
-         id="user_password"
-         name="user[password]"
-         type="password">
-      <br>
+        <label for="user_password">Password</label>
+        <input
+           id="user_password"
+           name="user[password]"
+           type="password">
+        <br>
     
-      <input type="submit" value="Log in">  
-    </form>
+        <input type="submit" value="Log in" id="logInButton" class="ink-button">  
+      </form>
+    </div>
   </div>
+</section>
 
-    <h4>New User? Create an Account here:</h4>
-
-    <form class="ink-form" action="<%= users_url %>" method="post">
+<section id="createAccount">
+  <h4>New User? Create an Account here:</h4>
+  
+  <div class="column-group half-gutters">
+    <form  
+    class="ink-form large-50 medium-50 small-50" 
+    action="<%= users_url %>" 
+    method="post">
       <input
          name="authenticity_token"
          type="hidden"
@@ -59,20 +77,28 @@
          type="text">
       <br>
 
-      <label for="user_password">Password</label>
+      <label for="user_password">Password</label>        
       <input
          id="user_password"
          name="user[password]"
          placeholder="aTerriblePassword"
          type="password">
       <br>
-
-      <input type="submit" value="Create account">  
+      
+      <input type="submit" 
+        value="Create account" 
+        id="signUpButton" 
+        class="ink-button">  
     </form>
-  <!-- </div> -->
-</div>
+  </div>
+</section>
+
+<section id="raveReviews">
+  
+</section>
 
 <div id="aboutMe">
+  
   <p>Long ago in a distant land, I, the shapeshifting master of darkness, Aku, unleashed an unspeakable evil... </p>
 </div>
 

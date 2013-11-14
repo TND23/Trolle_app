@@ -19,8 +19,6 @@ TrolleApp.Views.HomeIndex = Backbone.View.extend({
     'click #toBin' : 'goToBin',
     'mouseover #toBin' : 'showBin',
     'mouseout #toBin' : 'hideBin',    
-    
-    'mouseover #board_content' : 'highlight',
   },
   
   //authenticity token visible
@@ -28,7 +26,7 @@ TrolleApp.Views.HomeIndex = Backbone.View.extend({
     //if the board holder is present, do nothing. Otherwise show it.
     if($('.board_holder').length > 0){
     } else {
-      $('.board_holder').append(JST['boards/show']({board: this.user_boards})); 
+      $('.board_holder').append("DJFKJFKDJFKJDKLJFKDJFKSDJFSDLFJ"); 
     } 
   },
   
