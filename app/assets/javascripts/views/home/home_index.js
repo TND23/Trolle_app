@@ -28,7 +28,7 @@ TrolleApp.Views.HomeIndex = Backbone.View.extend({
     //if the board holder is present, do nothing. Otherwise show it.
     if($('.board_holder').length > 0){
     } else {
-      $('#lowerContent').append(JST['boards/show']);      
+      $('.board_holder').append(JST['boards/show']({board: this.user_boards})); 
     } 
   },
   

@@ -1,8 +1,8 @@
 object @board
-attribute :boardtitle, :board_id
+attribute :boardtitle, :id, :user_id
 child(:lists) do
-  attribute :listtitle, :list_id
+  attribute :listtitle, :id
   child(:cards) do
-    attribute :cardtitle
+    attribute :cardtitle, :cardbody, :id
   end
 end

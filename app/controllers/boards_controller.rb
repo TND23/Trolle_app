@@ -7,8 +7,7 @@ class BoardsController < ApplicationController
   
   def show
     user = current_user
-    @boards = user.board_ids(user.username)
-    render :json => @boards
+    @board = Board.find(params[:id])
   end
   
   def create
