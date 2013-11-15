@@ -4,10 +4,15 @@
 
 #board_content{
   background-color: grey;
-  width: 1000px;
+  width: 100%;
   height: 1000px;
 }
 
+#createHolder{
+  background-color: #999;
+  width: 500px;
+  height: 100px;
+}
 .boards_all{
   width: 500px;
   height: 500px;

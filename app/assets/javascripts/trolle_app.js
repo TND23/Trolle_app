@@ -11,6 +11,8 @@ window.TrolleApp = {
     var routerOption = routerOption || 1;  
     var visiting_user = currentUser || JSON.parse($('#user_boots').html()).current_user;
     
+    var user_id = visiting_user.id;
+    
     if($('#user_board_boots').length > 0){
       var user_boards = JSON.parse($('#user_board_boots').html()).user_boards;
     } else {
@@ -18,7 +20,7 @@ window.TrolleApp = {
     }
     
     if(visiting_user){
-      var board = new TrolleApp.Models.Board(visiting_user);
+      var board = new TrolleApp.Models.Board(user_id);
     }
       
     board.fetch({

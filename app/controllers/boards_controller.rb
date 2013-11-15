@@ -22,4 +22,9 @@ class BoardsController < ApplicationController
 
   end
   
+  def destroy
+    @board = Board.find(params[:board])
+    @board.destroy
+  end
+  
 end

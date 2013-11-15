@@ -19,8 +19,7 @@ TrolleApp.Views.BoardShow = Backbone.View.extend({
     console.log(this.model);
     newList = new TrolleApp.Models.List(that.model);
     data.lists.push(newList);
-    console.log(this.data);
-    
+    console.log(this.data);    
   },
   
   render: function(){

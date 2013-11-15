@@ -1,22 +1,14 @@
 TrolleApp.Models.Board = Backbone.Model.extend({
- 
-  initialize: function(visiting_user){
-    this.visiting_user = visiting_user;    
-  },
   
   defaults: {
-    title: "My Board",
-    user_id: (this.visiting_user === undefined)? 0 : this.visiting_user['id']
+    user_id: 0,
+    boardtitle: "My new board"
   },
 
-  urlRoot: function(visiting_user){
+  urlRoot: function(){
     var that = this;
-    var id = this.attributes['id'];    
-    var url = '/users/' + id + '/boards';
+  
+    var url = '/users/' + that.attributes['user_id'] + '/boards';
     return url;
   },
-  
-  doThing: function(){
-    alert('success');
-  }  
 });
