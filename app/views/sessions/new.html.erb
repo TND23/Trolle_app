@@ -27,16 +27,15 @@
 </section>
 
 <section id="joinUs">
-  <div class="ink-grid">
-    <h4>Sign in</h4>
+    <h4 style="font-size: -webkit-xxx-large;">Sign in</h4>
     <div class="column-group half-gutters">
-      <form class="ink-form large-50 medium-50 small-50" action="<%= session_url %>" method="post">
+      <form id="signInDiv" class="ink-form large-50 medium-50 small-50" action="<%= session_url %>" method="post">
         <input
            name="authenticity_token"
            type="hidden"
            value="<%= form_authenticity_token %>">
 
-        <label for="user_username" class="large-20">Username</label>
+        <label for="user_username">Username</label>
         <input
            id="user_username"
            name="user[username]"           
@@ -50,17 +49,19 @@
            type="password">
         <br>
     
-        <input type="submit" value="Log in" id="logInButton" class="ink-button">  
+        <input type="submit" value="Log in" id="logInButton"         class="ink-button blue large-25 push-center">    
       </form>
     </div>
-  </div>
 </section>
 
-<section id="createAccount">
-  <h4>New User? Create an Account here:</h4>
+<section id="createAccountSection">
+ 
   
   <div class="column-group half-gutters">
+    <div>
+     <h4 style="font-size: -webkit-xxx-large;">New User? Create an Account     here:</h4></div>
     <form  
+    id="createAccountDiv"
     class="ink-form large-50 medium-50 small-50" 
     action="<%= users_url %>" 
     method="post">
@@ -88,7 +89,7 @@
       <input type="submit" 
         value="Create account" 
         id="signUpButton" 
-        class="ink-button">  
+        class="ink-button blue large-25 push-center">  
     </form>
   </div>
 </section>
@@ -101,7 +102,7 @@
   
   <p>Long ago in a distant land, I, the shapeshifting master of darkness, Aku, unleashed an unspeakable evil... </p>
 </div>
-
+<footer id="mainFooter"></footer>
 <script>
 
 $('#about').click(function() {

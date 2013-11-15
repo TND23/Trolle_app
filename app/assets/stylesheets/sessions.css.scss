@@ -12,15 +12,12 @@ cursor: -webkit-grab;
 }
 
 .ink-form{
-height: 400px;  
+height: 200px;  
 line-height: 2;
 margin-bottom: 1em;
 margin-left: 2em;
 }  
 
-.ink-button{
-  
-}
 
 #trolleWelcome{
   background: lightsteelblue;
@@ -29,19 +26,48 @@ margin-left: 2em;
   margin: 0;
 }
 
+#signUpButton{
+  height: 50px;
+  border-radius: 12px;
+  font-size: 20px;
+}
+
+#logInButton{
+  height: 50px;
+  border-radius: 12px;
+  font-size: 20px;
+}
+
 #joinUs{
   background-color: white;
 }
 
-#createAccount{
+#createAccountSection{
   background-color: #63ACD1;
+}
+
+#createAccountDiv{
+  float: right;
+  text-align: center;
+  text-shadow: white;
+  font-size: xx-large;
+  position: relative;
+  right: 600px;
+}
+
+#signInDiv{
+  float: right;
+  text-align: center;
+  text-shadow: white;
+  font-size: xx-large;
+  position: relative;
+  right: 600px;
 }
 
 #raveReviews{
   height: 300px;
   background-color: #888;
 }
-
 
 #imageLogo{
   height: 75px;
@@ -67,10 +93,7 @@ margin-left: 2em;
 	border:1px solid #84bbf3;
 	color:#ffffff;
 }
-//line-height: 2;
-//margin-bottom: 1em;
-//margin-left: 2em;
-// nicer sign in style
+
 .board_holder{
   height: 200px;
   width: 550px;
@@ -78,22 +101,8 @@ margin-left: 2em;
 	background-color:#bddbfa;
 }
 
-#home_left_side{
-  height: 1000px;
-  position: absolute;
-  background-color: #000;
-  z-index: 1;
-}
-
 #main_container{
   position: relative;
-}
-
-#home_right_side{
-  height: 1000px;
-  position: absolute;
-  background-color: #000;
-  z-index: 1;
 }
 
 #aboutMe{

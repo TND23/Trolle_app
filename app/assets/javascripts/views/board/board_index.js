@@ -34,12 +34,12 @@ TrolleApp.Views.BoardIndex = Backbone.View.extend({
     var title = $('#board_boardtitle').val();
     if(title.length < 1){
       alert("please give your board a title");
+      window.location = "users/"+id+"/boards"
     }
     else{
       var newBoard = new TrolleApp.Models.Board({boardtitle: title, user_id: id});
       newBoard.save({success: function(){alert('user_board')}}, {error: function(){alert("something has gone wrong in saving")}});
     }
-    this.render();
   },
   
   goHome: function(){
