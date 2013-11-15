@@ -17,6 +17,11 @@
 //= require backbone
 //= require backbone-support
 //= require trolle_app
+//= require jquery-ui
+//= require jquery.ui.draggable
+//= require jquery.ui.droppable
+//= require jquery.ui.resizable
+//= require jquery.ui.selectable
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections

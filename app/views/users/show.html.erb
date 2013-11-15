@@ -1,14 +1,9 @@
 <div id="menuContainer">
-<nav class="ink-navigation hide-small">
-  <ul class="menu horizontal flat rounded shadowed grey" id="home_menu">
-    <li><a href="#">Item</a></li>
-    <li><a href="#">Item2</a></li>
-  </ul>
-</nav>
 
 <div id="content">
-  <h2 id="welcome">Logged in as <%= @user.username.capitalize %></h2>
-  
+  <div>
+    <h2 id="welcome">Logged in as <%= @user.username.capitalize %></h2>
+  </div>
   <script type="application/json" id="user_boots">
     { "current_user": <%= {
                             :id => current_user.id, 

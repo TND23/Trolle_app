@@ -4,10 +4,10 @@
   <nav class="ink-navigation hide-small">
     <ul class="menu horizontal flat rounded shadowed grey" id="menu">
     <li><a id="home" href="#">Home</a></li>
-      <li><a id="boardList" href="#">My Boards</a>
+      <li><a id="boardList" href="/">My Boards</a>
         <ul class="submenu">
           <% for(var i = 0; i < boards.length; i++){ %>
-            <li> <a href="#<%= boards[i].id%>">                                               <%= boards[i].boardtitle %></a>
+            <li> <a href="#/<%= boards[i].id%>">                                               <%= boards[i].boardtitle %></a>
             </li>
           <% } %>
         </ul>

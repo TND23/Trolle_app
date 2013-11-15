@@ -6,7 +6,7 @@ TrolleApp::Application.routes.draw do
   resources :users, :only => [:create, :new]
   
   resources :boards, :only => [:edit, :update, :destroy] do
-    resources :lists, :only => [:show, :create, :index]
+    resources :lists, :only => [:show, :create, :index, :destroy]
   end
   
   resources :lists, :only => [:edit, :update] do

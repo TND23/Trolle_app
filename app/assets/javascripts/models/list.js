@@ -1,11 +1,7 @@
 TrolleApp.Models.List = Backbone.Model.extend({
  
-  initialize: function(name){
-    this.listtitle = name;    
-  },
-
   urlRoot: function(){  
-    var url = "/boards" + this.parent_board['id'] + "/lists" + this.id;
+    var url = "/users/" + current_user.id + "/boards";
     return url;
   }  
 });

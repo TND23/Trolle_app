@@ -1,0 +1,26 @@
+<div id="createListContainer">
+<% var url = "/boards/" + board.id + "/lists" %>
+
+<form class="ink-form" id="newList" action=<%=url%> method="post">
+<% var board = board %>
+  <label for="list_form_name">List Name:</label>
+ 
+  <input
+  id="list_listtitle"
+  name="list[listtitle]"
+  type="text">
+  
+  <input   
+  name="authenticity_token"   
+  type="hidden"   
+  value="<%=TrolleApp.csrfToken%>">
+   
+ <input
+  id="board"
+  type="hidden"
+  value="<%= board %>">
+ 
+ <input id="createList" type="submit" value="Create List">
+
+</form>
+</div>

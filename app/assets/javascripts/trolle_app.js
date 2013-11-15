@@ -21,6 +21,8 @@ window.TrolleApp = {
     
     if(visiting_user){
       var board = new TrolleApp.Models.Board(user_id);
+      var list = new TrolleApp.Models.List();
+      var card = new TrolleApp.Models.Card();
     }
       
     board.fetch({
@@ -28,7 +30,7 @@ window.TrolleApp = {
         if (routerOption == 1) { 
           var homeRouter = new TrolleApp.Routers.HomeRouter([visiting_user, user_boards]); }
         if (routerOption == 2){
-          var boardRouter = new TrolleApp.Routers.BoardRouter([currentUser, user_boards]);
+          var boardRouter = new TrolleApp.Routers.BoardRouter([currentUser, user_boards, board, list, card]);
         }
         Backbone.history.start();
       },

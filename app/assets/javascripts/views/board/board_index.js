@@ -1,16 +1,20 @@
 TrolleApp.Views.BoardIndex = Backbone.View.extend({
   
-  initialize: function(user, user_boards){
+  initialize: function(user, user_boards, board, list, card){
     this.user = user;
     this.collection = user_boards;
     this.user_boards = user_boards.collection;
+    this.board = board;
+    this.list = list;
+    this.card = card;
+    console.log(this.card);
   },
   
   template: JST['boards/index'],
   events: {
     "click #boardForm" : "showBoardForm",
     "click #createBoard" : "submitBoard",
-    'click #home' : "goHome",
+    "click #home" : "goHome",
   },
 
   showBoardForm: function(){
@@ -45,7 +49,7 @@ TrolleApp.Views.BoardIndex = Backbone.View.extend({
   goHome: function(){
     window.location = ("/");
   },
-  
+    
   render: function(){
     var that = this;    
     var boards = that.user_boards;
