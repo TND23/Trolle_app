@@ -1,5 +1,5 @@
 object @list
-attributes :listtitle, :id
+attributes :listtitle, :board_id
 child(:cards) do
   attribute :cardtitle
 end

@@ -9,33 +9,8 @@ TrolleApp.Views.HomeIndex = Backbone.View.extend({
 
   events: {
     'click #toBoard' : 'goToBoards',
-    'mouseover #toBoard' : 'showBoards',
-    'mouseout #toBoard' : 'hideBoards',
+  },
 
-    'click #toSettings' : 'goToSettings',
-    'mouseover #toSettings' : 'showSettings',
-    'mouseout #toSettings' : 'hideSettings',
-    
-    'click #toBin' : 'goToBin',
-    'mouseover #toBin' : 'showBin',
-    'mouseout #toBin' : 'hideBin',    
-  },
-  
-  //authenticity token visible
-  showBoards: function(){    
-    //if the board holder is present, do nothing. Otherwise show it.
-    if($('.board_holder').length > 0){
-    } else {
-      $('.board_holder').append("DJFKJFKDJFKJDKLJFKDJFKSDJFSDLFJ"); 
-    } 
-  },
-  
-  hideBoards: function(){
-    //make sure to slowly fade out and remove the created element :)
-    $('.board_holder').fadeOut("slow", function()
-      { $('.board_holder').remove(); });
-  },
-  
   goToBoards: function(){
     //remove all BB elements, change router, add new BB content
     var that = this;
@@ -43,14 +18,6 @@ TrolleApp.Views.HomeIndex = Backbone.View.extend({
     this.remove();    
     var current_id = this.user.model['id'];
     window.location = current_id+'/boards'
-  },
-  
-  highlight: function(){
-    alert('highlighted');
-  },
-  
-  goToBin: function(){
-  
   },
   
   render: function(){

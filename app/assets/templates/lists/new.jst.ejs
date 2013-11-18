@@ -1,9 +1,8 @@
-<div id="createListContainer">
+<div id="listNameContainer">
 <% var url = "/boards/" + board.id + "/lists" %>
+<form class="ink-form" id="newBoard" action=<%=url%> method="post">
 
-<form class="ink-form" id="newList" action=<%=url%> method="post">
-<% var board = board %>
-  <label for="list_form_name">List Name:</label>
+  <label for="list_form">List Name:</label>
  
   <input
   id="list_listtitle"
@@ -18,7 +17,7 @@
  <input
   id="board"
   type="hidden"
-  value="<%= board %>">
+  value="<%= board.id %>">
  
  <input id="createList" type="submit" value="Create List">
 

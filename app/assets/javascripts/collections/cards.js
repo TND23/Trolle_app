@@ -1,3 +1,3 @@
-TrolleApp.Collections.Card = Backbone.Collection.extend({
-  model: TrolleApp.Models.Card,  
+TrolleApp.Collections.Cards = Backbone.Collection.extend({
+  model: TrolleApp.Models.Card  
 });

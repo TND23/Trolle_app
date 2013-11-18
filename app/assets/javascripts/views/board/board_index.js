@@ -1,13 +1,9 @@
 TrolleApp.Views.BoardIndex = Backbone.View.extend({
   
-  initialize: function(user, user_boards, board, list, card){
+  initialize: function(user, user_boards){
     this.user = user;
     this.collection = user_boards;
     this.user_boards = user_boards.collection;
-    this.board = board;
-    this.list = list;
-    this.card = card;
-    console.log(this.card);
   },
   
   template: JST['boards/index'],
@@ -15,11 +11,11 @@ TrolleApp.Views.BoardIndex = Backbone.View.extend({
     "click #boardForm" : "showBoardForm",
     "click #createBoard" : "submitBoard",
     "click #home" : "goHome",
+    "click .indivBoard" : "rerenderPage",
   },
 
   showBoardForm: function(){
-    //we want to have this guy append the form to the bottom of this
-    //part of the nav bar.
+    //restyle this
     var that = this;
     if($("#createContainer").length > 0){
       $('#createHolder').toggle();
@@ -30,6 +26,8 @@ TrolleApp.Views.BoardIndex = Backbone.View.extend({
     }
   },  
   
+
+  
   submitBoard: function(event){
     event.preventDefault();
     
@@ -38,16 +36,32 @@ TrolleApp.Views.BoardIndex = Backbone.View.extend({
     var title = $('#board_boardtitle').val();
     if(title.length < 1){
       alert("please give your board a title");
-      window.location = "users/"+id+"/boards"
+      window.location = "users/"+id+"/boards";
     }
     else{
       var newBoard = new TrolleApp.Models.Board({boardtitle: title, user_id: id});
-      newBoard.save({success: function(){alert('user_board')}}, {error: function(){alert("something has gone wrong in saving")}});
+      newBoard.save(newBoard.attributes, {success: function(){alert('save successful it would be cool if we could update the page when the save works :)')}}, {error: function(){alert("something has gone wrong in saving")}});
     }
   },
   
   goHome: function(){
     window.location = ("/");
+  },
+  
+  rerenderPage: function(event){
+    //get rid of all the things on the page
+    if($('.listOfLists').length > 0){
+      event.preventDefault();
+      $('#boardTitle').remove();
+      $('.listOfLists').remove();
+      $('#home_menu').remove();
+      this.off();
+      window.location = event.target;
+    }
+    else{
+      $('#boardTitle').remove();
+      $('#home_menu').remove();
+    }
   },
     
   render: function(){

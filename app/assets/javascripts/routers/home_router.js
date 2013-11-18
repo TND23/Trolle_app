@@ -15,7 +15,6 @@ TrolleApp.Routers.HomeRouter = Support.SwappingRouter.extend({
     var homeIndexForm = new TrolleApp.Views.HomeIndex({model: visiting_user}, user_boards);
     var renderedHome = homeIndexForm.render();    
     $("#content").append(renderedHome.el);
-    
   },
   
 });

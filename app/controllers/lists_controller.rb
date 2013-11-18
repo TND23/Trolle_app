@@ -5,7 +5,6 @@ class ListsController < ApplicationController
   
   def new
     @list = List.new
-    redirect_to list_url
   end
   
   def show
@@ -14,8 +13,8 @@ class ListsController < ApplicationController
   
   def create
     @board = Board.find(params[:board_id])
-    @list = List.new
-    @list.board_id = @board.id
+    @list = List.new(params[:list])
+    @list['board_id'] = @board['id']
     if @list.save
     else
       render :json => 'save failure'
