@@ -1,0 +1,70 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#toBoard{
+  font-family: -webkit-body;
+  font-size: 20px;
+  height: 70%;
+  width: 30%;
+}
+#toBoard:hover{
+  color:blue;
+}
+
+#new_user{
+  width: 500px;
+  height: 500px;
+  background-color: blue;
+}
+
+#toSettings{
+  font-family: -webkit-body;
+  font-size: 20px;
+  height: 70%;
+  width: 30%;
+}
+
+#toSettings:hover{
+  color:blue;
+}
+
+#toBin{
+  font-family: -webkit-body;
+  font-size: 20px;
+  height: 70%;
+  width: 30%;
+}
+
+#toBin:hover{
+  color:blue;
+}
+
+.container{
+  padding-left: 30%;
+  padding-bottom: 1%;
+}
+#menuFooter{
+  width: 600px;
+  height: 100px;
+  position: absolute;
+  
+  top: 380px;
+  border: .5em solid;
+  background-color: #AFAFAF;  
+}
+#content{
+  left: 18px;
+  right: 18px;
+  position: absolute;
+}
+
+#lowerContent{
+  width: 600px;
+  height: 100px;
+  position: absolute;
+  right: 2px;
+  left: 29.7%;
+  top: 380px;
+  border: .5em solid;
+  background-color: #AFAFAF;
+}
