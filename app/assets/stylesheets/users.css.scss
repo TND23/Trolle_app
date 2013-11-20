@@ -4,11 +4,34 @@
 #toBoard{
   font-family: -webkit-body;
   font-size: 20px;
-  height: 70%;
+  height: 20%;
   width: 30%;
 }
 #toBoard:hover{
   color:blue;
+}
+
+#toBoardContainer{
+	width: 30%;
+	height: 1000px;
+	background-color: red;
+	color: red;
+}
+
+#toSettingsContainer{
+	width: 30%;
+	height: 1000px;
+	background-color: blue;
+	color: blue;
+	float: left;
+}
+
+#toBinContainer{
+	width: 30%;
+	height: 1000px;
+	background-color: green;
+	color: green;
+	float:right;
 }
 
 #new_user{
@@ -35,36 +58,18 @@
   width: 30%;
 }
 
-#toBin:hover{
-  color:blue;
+
+
+#userShowContainer{
+  height: 90%;
+  width: 100%;
+	color: red;
+	background-color: red;
 }
 
-.container{
-  padding-left: 30%;
-  padding-bottom: 1%;
-}
-#menuFooter{
-  width: 600px;
-  height: 100px;
-  position: absolute;
-  
-  top: 380px;
-  border: .5em solid;
-  background-color: #AFAFAF;  
-}
 #content{
-  left: 18px;
-  right: 18px;
-  position: absolute;
-}
 
-#lowerContent{
-  width: 600px;
-  height: 100px;
+	height: 100%;
+	width: 100%;
   position: absolute;
-  right: 2px;
-  left: 29.7%;
-  top: 380px;
-  border: .5em solid;
-  background-color: #AFAFAF;
 }

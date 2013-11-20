@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   attr_accessible :username, :password, :boards
   attr_accessor :board
   attr_reader :password
- 
+
   validates :password_digest, :presence => { :message => "Password can't be blank" }
    validates :password, :length => { :minimum => 6, :allow_nil => true }
    validates :session_token, :presence => true
@@ -13,22 +13,22 @@ class User < ActiveRecord::Base
 
    has_many :boards
 
-   
+
    def self.find_by_credentials(username, password)
      user = User.find_by_username(username)
      return nil if user.nil?
      user.is_password?(password) ? user : nil
    end
-   
+
    def self.generate_session_token
      SecureRandom::urlsafe_base64(16)
    end
-   
+
    def board_ids(username)
     current_user = User.find_by_username(username)
     current_user.boards.to_json
    end
-  
+
    def is_password?(password)
      BCrypt::Password.new(self.password_digest).is_password?(password)
    end

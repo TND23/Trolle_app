@@ -37,8 +37,13 @@ TrolleApp.Views.BoardShow = Backbone.View.extend({
 		this.board_id = this.model.id;
 		console.log(this.board_id);
     var newList = new TrolleApp.Models.List({listtitle: that.newListTitle, board_id: that.board_id});
-    newList.save(newList.attributes, {error: function(){alert('cool')}});
+		console.log(newList.attributes);
+    newList.save(newList.attributes, {  error: function(model, error) {
+      console.log(model.toJSON());
+      console.log('error.responseText');}});
   },
+
+
 
   displayButtonInfo: function(event){
     event.preventDefault();
@@ -46,33 +51,20 @@ TrolleApp.Views.BoardShow = Backbone.View.extend({
 
   destroyList: function(event){
     event.preventDefault();
-		console.log(event.target.id);
 		var that = this;
-		var list_id = event.target.id;
+		var list_id = parseInt(event.target.id)
 		this.board_id = this.model.id;
-    var list = new TrolleApp.Models.List({id: list_id, board_id: that.board_id});
-		list.fetch({success: function(){console.log(list.toJSON());}})
-		list.destroy({success: function(){console.log('winner');}})
-
-  // person.destroy({
-//       success: function(removed_person, data) {
-//           self.collection.remove(removed_person);
-//       },
-//       error: function(aborted_person, response) {
-//           // Error handling as needed.
-   // var corresponding_list = event.target.parentElement.parentElement.parentElement;
- //   corresponding_list.remove();
- //   console.log(corresponding_list.id);
- //   var user_id = current_user['id'];
- //   var list_id = corresponding_list.id.match(/\d+/);
- //   var that = this;
- //   this.board_id = this.model.model.id
- //   $.ajax({
- //     url: "/boards/"+ that.board_id+"/lists/"+list_id+".json",
- //     type:"GET",
- //     success: function(data){
- //       console.log(data);}
- //   });
+    var list = new TrolleApp.Models.List({id: list_id, board_id: this.board_id});
+	  list.fetch({success: function(){console.log(list.toJSON());}})
+		list.destroy({success: function(){console.log('it gone');}})
+	//	console.log(list);
+	//	list.destroy({success: function(){console.log('winner');}})
+    $.ajax({
+      url: "/boards/"+ that.board_id+"/lists/"+list_id,
+      type:"GET",
+      success: function(data){
+        console.log(data);}
+    });
   },
   dragIt: function(event){
     var card_container = event.target.id.toString();
@@ -105,3 +97,4 @@ TrolleApp.Views.BoardShow = Backbone.View.extend({
     return this;
   },
 });
+//.save(null, {success: function (model, response) {console.log("success");},error: function (model, response) {console.log(model); console.log(response);}});

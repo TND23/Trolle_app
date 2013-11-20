@@ -7,7 +7,7 @@
       <li><a id="boardList" href="/">My Boards</a>
         <ul class="submenu">
           <% for(var i = 0; i < boards.length; i++){ %>
-            <li class="indivBoard"> <a href="#/<%= boards[i].id%>">                           <%= boards[i].boardtitle %></a>
+            <li class="indivBoard"> <a href="#/<%= boards[i].id%>"> <%= boards[i].boardtitle %></a>
             </li>
           <% } %>
         </ul>

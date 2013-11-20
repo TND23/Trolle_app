@@ -25,14 +25,15 @@ window.TrolleApp = {
     board.fetch({
       success: function(){
         if (routerOption == 1) {
-          var homeRouter = new TrolleApp.Routers.HomeRouter([visiting_user, user_boards]); }
+          var homeRouter = new TrolleApp.Routers.HomeRouter([visiting_user, user_boards]);
+				}
         if (routerOption == 2){
           var boardRouter = new TrolleApp.Routers.BoardRouter([currentUser, user_boards]);
         }
         Backbone.history.start();
       },
       error: function(model, response){
-        alert("fetching failed");
+        alert("We're so sorry... something has gone terribly wrong.");
       }
     })
   }

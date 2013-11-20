@@ -12,11 +12,11 @@ cursor: -webkit-grab;
 }
 
 .ink-form{
-height: 200px;  
+height: 200px;
 line-height: 2;
 margin-bottom: 1em;
 margin-left: 2em;
-}  
+}
 
 
 #trolleWelcome{
@@ -83,23 +83,6 @@ margin-left: 2em;
   font-size: larger;
 }
 
-.main-buttons {
-  padding-top: 45px;
-  padding-left: 35px;
-  height: 200px;
-  width: 550px;
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #bddbfa), color-stop(1, #80b5ea) );
-	background-color:#bddbfa;
-	border:1px solid #84bbf3;
-	color:#ffffff;
-}
-
-.board_holder{
-  height: 200px;
-  width: 550px;
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #bddbfa), color-stop(1, #80b5ea) );
-	background-color:#bddbfa;
-}
 
 #main_container{
   position: relative;
@@ -114,7 +97,7 @@ margin-left: 2em;
    left: 100;
    top: 100;
    z-index: 3;
-   background: url('trollface.png'); 
+   background: url('trollface.png');
  }
 #log_in_container{
   background-color: aliceblue;

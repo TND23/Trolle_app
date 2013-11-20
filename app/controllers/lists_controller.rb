@@ -1,6 +1,12 @@
 class ListsController < ApplicationController
   def index
-    @lists = List.all
+    current_board = Board.find(params[:board_id])
+    @lists = current_board.lists
+    if current_board['user_id'] != current_user['id']
+      render :json => "You sure this is your board?"
+    else
+      render :json => @lists
+    end
   end
 
   def new
@@ -8,7 +14,8 @@ class ListsController < ApplicationController
   end
 
   def show
-    @list = List.find(params[:list])
+    @list = List.find(params[:board_id], params[:id])
+    render :json => @list
   end
 
   def create
@@ -22,7 +29,7 @@ class ListsController < ApplicationController
   end
 
   def destroy
-    @list = List.find(params[:list])
+    @list = List.find(params[:board_id][:id])
     if @list
       @list.destroy
     else

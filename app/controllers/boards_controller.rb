@@ -4,13 +4,13 @@ class BoardsController < ApplicationController
     user = current_user
     @boards = user.boards
   end
-  
+
   def show
-    user = current_user
-    current_board = Board.find(params[:id])
+    #user = current_user
+    #current_board = Board.find(params[:id])
     @board = Board.find(params[:id])
   end
-  
+
   def create
     user = User.find(params[:user_id])
     @board = Board.new(params[:board])
@@ -22,10 +22,10 @@ class BoardsController < ApplicationController
     end
 
   end
-  
+
   def destroy
     @board = Board.find(params[:board])
     @board.destroy
   end
-  
+
 end

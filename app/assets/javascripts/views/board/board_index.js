@@ -26,8 +26,6 @@ TrolleApp.Views.BoardIndex = Backbone.View.extend({
     }
   },
 
-
-
   submitBoard: function(event){
     event.preventDefault();
 
@@ -39,10 +37,17 @@ TrolleApp.Views.BoardIndex = Backbone.View.extend({
       window.location = "users/"+id+"/boards";
     }
     else{
-      var newBoard = new TrolleApp.Models.Board({boardtitle: title, user_id: id});
+			var newBoardsCollection = new TrolleApp.Collections.Lists();
+
+      var newBoard = new TrolleApp.Models.Board({boardtitle: title, user_id: id}, {collection: newListCollection});
       newBoard.save(newBoard.attributes, {success: function(){alert('save successful it would be cool if we could update the page when the save works :)')}}, {error: function(){alert("something has gone wrong in saving")}});
+		//	this.addToBoardList(newBoard);
     }
   },
+
+	//addToBoardList: function(board){
+	//
+	// },
 
   goHome: function(){
     window.location = ("/");

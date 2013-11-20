@@ -9,6 +9,7 @@ TrolleApp.Routers.BoardRouter = Support.SwappingRouter.extend({
   routes: {
     "" : "index",
     ":id" : "findBoard",
+
   },
 
   index: function(){
@@ -22,8 +23,9 @@ TrolleApp.Routers.BoardRouter = Support.SwappingRouter.extend({
   findBoard: function(id){
     var that = this;
     this.id = id;
+		this.user_id = this.visiting_user.id;
     $.ajax({
-      url: "/users/1/boards/"+id+".json",
+      url: "/users/"+ this.user_id +"/boards/"+id+".json",
       type:"GET",
       success: function(data){
         that.displayResult(data);}
