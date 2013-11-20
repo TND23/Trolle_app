@@ -12,8 +12,10 @@ TrolleApp.Routers.HomeRouter = Support.SwappingRouter.extend({
   index: function(){
 
     var user_boards = this.user_boards;
+
     var visiting_user = this.visiting_user;
-    var homeIndexForm = new TrolleApp.Views.HomeIndex({model: visiting_user}, user_boards);
+		var these_boards = new TrolleApp.Collections.Boards();
+    var homeIndexForm = new TrolleApp.Views.HomeIndex({model: visiting_user}, user_boards, {collection: these_boards});
     var renderedHome = homeIndexForm.render();
     $("#content").html(renderedHome.el);
   },

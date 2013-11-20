@@ -4,10 +4,10 @@
 </div>
 
 <script>
-var current_user = <%= { :id => current_user.id, 
-                         :user_name => current_user.username,  
+var current_user = <%= { :id => current_user.id,
+                         :user_name => current_user.username,
                          :boards => current_user.boards
-                        }.to_json.html_safe  
+                        }.to_json.html_safe
                     %>;
 var router_option = 2;
 var user_boards = <%= current_user.boards.to_json.html_safe %>;

@@ -37,10 +37,10 @@ TrolleApp.Views.BoardIndex = Backbone.View.extend({
       window.location = "users/"+id+"/boards";
     }
     else{
-			var newBoardsCollection = new TrolleApp.Collections.Lists();
+			var newListsCollection = new TrolleApp.Collections.Lists();
 
       var newBoard = new TrolleApp.Models.Board({boardtitle: title, user_id: id}, {collection: newListCollection});
-      newBoard.save(newBoard.attributes, {success: function(){alert('save successful it would be cool if we could update the page when the save works :)')}}, {error: function(){alert("something has gone wrong in saving")}});
+      newBoard.save(newBoard.attributes, {success: function(){console.log(newBoard)}}, {error: function(){alert("something has gone wrong in saving")}});
 		//	this.addToBoardList(newBoard);
     }
   },

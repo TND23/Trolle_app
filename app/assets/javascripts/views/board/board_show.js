@@ -55,6 +55,7 @@ TrolleApp.Views.BoardShow = Backbone.View.extend({
 		var list_id = parseInt(event.target.id)
 		this.board_id = this.model.id;
     var list = new TrolleApp.Models.List({id: list_id, board_id: this.board_id});
+		//{collection: }
 	  list.fetch({success: function(){console.log(list.toJSON());}})
 		list.destroy({success: function(){console.log('it gone');}})
 	//	console.log(list);

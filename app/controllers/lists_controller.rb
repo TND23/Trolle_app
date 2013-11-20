@@ -1,4 +1,5 @@
 class ListsController < ApplicationController
+
   def index
     current_board = Board.find(params[:board_id])
     @lists = current_board.lists
