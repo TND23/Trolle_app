@@ -48,7 +48,7 @@ TrolleApp.Views.BoardIndex = Backbone.View.extend({
 	//addToBoardList: function(board){
 	//
 	// },
-
+	//
   goHome: function(){
     window.location = ("/");
   },
