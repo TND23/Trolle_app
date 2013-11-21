@@ -20,11 +20,6 @@ TrolleApp.Views.BoardShow = Backbone.View.extend({
     "click #listForm" : "showListInfo",
   },
 
-	debug: function(){
-		this.board_id = this.model.id;
-		console.log(this.board_id);
-	},
-
 
   createCard: function(event){
     event.preventDefault();
@@ -58,8 +53,8 @@ TrolleApp.Views.BoardShow = Backbone.View.extend({
 		//{collection: }
 	  list.fetch({success: function(){console.log(list.toJSON());}})
 		list.destroy({success: function(){console.log('it gone');}})
-	//	console.log(list);
-	//	list.destroy({success: function(){console.log('winner');}})
+
+
     $.ajax({
       url: "/boards/"+ that.board_id+"/lists/"+list_id,
       type:"GET",

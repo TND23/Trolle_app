@@ -14,9 +14,10 @@ TrolleApp.Routers.BoardRouter = Support.SwappingRouter.extend({
 
   index: function(){
     var that = this;
-    var user_boards = this.user_boards;
     var visiting_user = this.visiting_user;
-    var boardView = new TrolleApp.Views.BoardIndex(visiting_user, {collection: that.user_boards});
+    var boardView = new TrolleApp.Views.BoardIndex({current_user: visiting_user, collection: TrolleApp.Collections.Boards});
+		TrolleApp.Collections.Boards.fetch({reset: true, user_id: this.visiting_user});
+
     $('#board_content').append(boardView.render().el);
   },
 

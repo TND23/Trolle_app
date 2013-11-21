@@ -1,4 +1,4 @@
-<% var boards = boards %>
+<% var boards = boards.models %>
 
 <div id="nav_container">
   <nav class="ink-navigation hide-small">
@@ -7,7 +7,8 @@
       <li><a id="boardList" href="/">My Boards</a>
         <ul class="submenu">
           <% for(var i = 0; i < boards.length; i++){ %>
-            <li class="indivBoard"> <a href="#/<%= boards[i].id%>"> <%= boards[i].boardtitle %></a>
+            <li class="indivBoard">
+            <%= boards[i].attributes.boardtitle %><a href="#<%=boards[i].attributes.id%>"></a>
             </li>
           <% } %>
         </ul>
@@ -17,3 +18,5 @@
     </ul>
   </nav>
 </div>
+
+<%= console.log(boards[0].attributes) %>

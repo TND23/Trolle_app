@@ -1,8 +1,13 @@
 TrolleApp.Views.HomeIndex = Backbone.View.extend({
 
-  initialize: function(user, user_boards){
-    this.user = user;
-    this.user_boards = user_boards;
+
+	//INITIALIZED FROM HOME ROUTER
+
+  initialize: function(options){
+    this.user = options.current_user;
+    this.user_boards = options.user_boards;
+		this.collection = options.collection;
+		//listenTo allows dynamic rendering
   },
 
   template: JST['home/index'],
@@ -13,10 +18,11 @@ TrolleApp.Views.HomeIndex = Backbone.View.extend({
 
   goToBoards: function(){
     //remove all BB elements, change router, add new BB content
+		event.preventDefault();
     var that = this;
     this.off();
     this.remove();
-    var current_id = this.user.model['id'];
+    var current_id = this.user.id;
     window.location = current_id+'/boards'
   },
 

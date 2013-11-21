@@ -1,10 +1,15 @@
 TrolleApp.Views.BoardIndex = Backbone.View.extend({
 
-  initialize: function(user, user_boards){
-    this.user = user;
-    this.collection = user_boards;
-    this.user_boards = user_boards.collection;
-  },
+  initialize: function(options){
+    this.user = options.current_user;
+    this.collection = options.collection;
+		console.log(this.collection)
+		this.listenTo(
+			options.collection,
+			"add remove reset",
+			this.render
+		);
+	},
 
   template: JST['boards/index'],
   events: {
@@ -37,10 +42,12 @@ TrolleApp.Views.BoardIndex = Backbone.View.extend({
       window.location = "users/"+id+"/boards";
     }
     else{
-			var newListsCollection = new TrolleApp.Collections.Lists();
 
-      var newBoard = new TrolleApp.Models.Board({boardtitle: title, user_id: id}, {collection: newListCollection});
-      newBoard.save(newBoard.attributes, {success: function(){console.log(newBoard)}}, {error: function(){alert("something has gone wrong in saving")}});
+      var newBoard = new TrolleApp.Models.Board({boardtitle: title, user_id: id}, {collection: that.collection});
+			this.collection.add(newBoard);
+
+			//listenTo allows dynamic rendering
+      newBoard.save(newBoard.attributes, {success: function(){console.log(that.collection)}}, {error: function(){alert("something has gone wrong in saving")}});
 		//	this.addToBoardList(newBoard);
     }
   },
@@ -72,7 +79,7 @@ TrolleApp.Views.BoardIndex = Backbone.View.extend({
   render: function(){
     var that = this;
     var boards = that.user_boards;
-    $(this.el).append(this.template({boards: that.user_boards}));
+    $(this.el).html(this.template({boards: that.collection}));
     return this;
   },
 

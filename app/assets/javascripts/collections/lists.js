@@ -5,3 +5,5 @@ TrolleApp.Collections.Lists = Backbone.Collection.extend({
     return url;
   }
 });
+
+TrolleApp.Collections.Lists = new TrolleApp.Collections.Lists();

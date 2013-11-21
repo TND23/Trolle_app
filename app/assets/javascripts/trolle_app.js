@@ -7,6 +7,8 @@ window.TrolleApp = {
     TrolleApp.csrfToken = $("meta[name='csrf-token']").attr('content');
     TrolleApp.currentUser = currentUser;
 
+		TrolleApp.Collections.Boards = new TrolleApp.Collections.Boards({visiting_user: TrolleApp.currentUser});
+
     var $rootEl = $('#content');
     //get the router or assign it
     var routerOption = routerOption || 1;
