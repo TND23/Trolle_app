@@ -1,9 +1,16 @@
 TrolleApp.Views.BoardShow = Backbone.View.extend({
 
-  initialize: function(model, data){
-		this.board = model;
-    this.model = model.model;
-    this.data = data;
+  initialize: function(options){
+		this.collection = options.collection;
+    this.current_board = options.current_board;
+    this.data = options.data;
+
+		this.listenTo(
+			options.collection,
+			"add remove reset",
+			this.render
+		);
+		//collection: TrolleApp.Collection.Lists, model: current_board, data: data}
   },
 
   template: JST['boards/show'],
@@ -13,9 +20,6 @@ TrolleApp.Views.BoardShow = Backbone.View.extend({
     "click #listButtonHolder" : "displayButtonInfo",
     "click .createCard" : "createCard",
     "click #createList" : "makeList",
-
-		"mouseover #createList" : "debug",
-
     "click .deleteAList" : "destroyList",
     "click #listForm" : "showListInfo",
   },
@@ -26,17 +30,29 @@ TrolleApp.Views.BoardShow = Backbone.View.extend({
   },
 
   makeList: function(event){
-    event.preventDefault();
-    var that = this;
-    this.newListTitle = $("#list_listtitle").val();
-		this.board_id = this.model.id;
-		console.log(this.board_id);
-    var newList = new TrolleApp.Models.List({listtitle: that.newListTitle, board_id: that.board_id});
-		console.log(newList.attributes);
-    newList.save(newList.attributes, {  error: function(model, error) {
-      console.log(model.toJSON());
-      console.log('error.responseText');}});
+		event.preventDefault();
+
+		var that = this;
+    var newListTitle = $("#list_listtitle").val();
+		var id = this.data.user_id;
+		var board_id = this.data.id;
+		var newList = new TrolleApp.Models.List({listtitle: newListTitle, board_id: board_id}, {collection: that.collection});
+    newList.save(newList.attributes, {success: function(){console.log(that.collection)}}, {error: function(){alert("something has gone wrong in saving")}});
+		this.collection.add(newList);
+		//	this.addToBoardList(newBoard);
   },
+
+
+//    event.preventDefault();
+ //   var that = this;
+//		this.board_id = this.model.id;
+//		console.log(this.board_id);
+//    var newList = new TrolleApp.Models.List({listtitle: that.newListTitle, board_id: that.board_id});
+//		console.log(newList.attributes);
+//    newList.save(newList.attributes, {  error: function(model, error) {
+//      console.log(model.toJSON());
+//      console.log('error.responseText');}});
+//  },
 
 
 
@@ -79,7 +95,7 @@ TrolleApp.Views.BoardShow = Backbone.View.extend({
     var that = this;
     event.preventDefault();
     if ($('#listNameContainer').length <= 0){
-      $('#listMenu').append(JST['lists/new']({board: that.board}));
+      $('#listMenu').append(JST['lists/new']({board: that.current_board}));
     } else {
       $('#listNameContainer').remove();
     }
@@ -87,9 +103,7 @@ TrolleApp.Views.BoardShow = Backbone.View.extend({
 
   render: function(){
     var that = this;
-    var data = that.data;
-    var board = that.board;
-    $(this.el).append(this.template({data: data, board: board}));
+    $(this.el).append(this.template({collection: this.collection, board: this.current_board, data: this.data}));
     return this;
   },
 });

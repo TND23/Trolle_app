@@ -3,7 +3,6 @@ TrolleApp.Routers.BoardRouter = Support.SwappingRouter.extend({
   initialize: function(options){
     this.visiting_user = options[0];
     this.user_boards = options[1];
-    //lists can be fetched.
   },
 
   routes: {
@@ -21,6 +20,7 @@ TrolleApp.Routers.BoardRouter = Support.SwappingRouter.extend({
     $('#board_content').append(boardView.render().el);
   },
 
+
   findBoard: function(id){
     var that = this;
     this.id = id;
@@ -29,6 +29,7 @@ TrolleApp.Routers.BoardRouter = Support.SwappingRouter.extend({
       url: "/users/"+ this.user_id +"/boards/"+id+".json",
       type:"GET",
       success: function(data){
+				console.log(data);
         that.displayResult(data);}
     });
   },
@@ -38,7 +39,8 @@ TrolleApp.Routers.BoardRouter = Support.SwappingRouter.extend({
       for (var i = 0; i < user_boards.length; i++){
         if (user_boards[i].id == that.id){
           var current_board = user_boards[i];
-          var boardDisplay = new TrolleApp.Views.BoardShow({model: current_board}, data);
+          var boardDisplay = new TrolleApp.Views.BoardShow({collection: TrolleApp.Collections.Lists, current_board: current_board, data: data});
+					// collection should be TrolleApp.Collections.Lists
           $('#board_content').append(boardDisplay.render().el);
         }
       }

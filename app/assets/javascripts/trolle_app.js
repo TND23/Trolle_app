@@ -24,6 +24,7 @@ window.TrolleApp = {
       var board = new TrolleApp.Models.Board();
     }
 
+		//decide which router is to be used based on what's passed in
     board.fetch({
       success: function(){
         if (routerOption == 1) {

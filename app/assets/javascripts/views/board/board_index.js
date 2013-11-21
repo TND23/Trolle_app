@@ -3,12 +3,13 @@ TrolleApp.Views.BoardIndex = Backbone.View.extend({
   initialize: function(options){
     this.user = options.current_user;
     this.collection = options.collection;
-		console.log(this.collection)
+
 		this.listenTo(
 			options.collection,
 			"add remove reset",
 			this.render
 		);
+
 	},
 
   template: JST['boards/index'],
@@ -20,7 +21,7 @@ TrolleApp.Views.BoardIndex = Backbone.View.extend({
   },
 
   showBoardForm: function(){
-    //restyle this
+    //restyle this so that it doesn't overlap with the list form
     var that = this;
     if($("#createContainer").length > 0){
       $('#createHolder').toggle();
@@ -52,25 +53,23 @@ TrolleApp.Views.BoardIndex = Backbone.View.extend({
     }
   },
 
-	//addToBoardList: function(board){
-	//
-	// },
-	//
   goHome: function(){
     window.location = ("/");
   },
 
   rerenderPage: function(event){
-    //get rid of all the things on the page
+		//generates lists that correspond with the board if there are any lists.
     if($('.listOfLists').length > 0){
       event.preventDefault();
       $('#boardTitle').remove();
       $('.listOfLists').remove();
       $('#home_menu').remove();
+			// do I really want to do this.off()?
       this.off();
       window.location = event.target;
     }
     else{
+			//otherwise we're coming from the home page.
       $('#boardTitle').remove();
       $('#home_menu').remove();
     }

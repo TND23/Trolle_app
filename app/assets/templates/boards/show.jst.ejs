@@ -1,4 +1,4 @@
-<% var url = "/boards/" + board.model.id + "/lists" %>
+<% var url = "/boards/" + board.id + "/lists" %>
 <div id="visible_board">
 <nav class="ink-navigation hide-small">
   <ul class="menu horizontal flat rounded shadowed grey" id="home_menu">
@@ -9,7 +9,7 @@
 </nav>
 
   <div id="boardTitle">
-    <%= board.model.boardtitle %>
+    <%= board.boardtitle %>
 
     <div class="lists">
       <% for (var i = 0; i < data.lists.length; i++){%>
