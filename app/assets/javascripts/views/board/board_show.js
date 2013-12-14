@@ -46,7 +46,7 @@ TrolleApp.Views.BoardShow = Backbone.View.extend({
 			{
 				success: function(model, response, xhr){
 
-
+					//asdfsafsd
 					var cardTemplate = JST['cards/show']({card: newCard});
 					current_list.cards.add(newCard);
 
