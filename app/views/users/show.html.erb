@@ -1,0 +1,31 @@
+<h2 id="welcome">Logged in as <%= @user.username.capitalize %></h2>
+
+<script type="application/json" id="user_boots">
+  { "current_user": <%= {
+                        :id => current_user.id, 
+                        :username => current_user.username,  
+                      }.to_json.html_safe %> 
+  }
+</script>
+
+<script type="application/json" id="user_board_boots">
+  { "user_boards": <%= current_user.boards.to_json.html_safe %> }
+</script>
+
+<%= button_to "Logout", session_url, :method => :delete %>
+
+
+<script>
+var current_user = <%= { :id => current_user.id, 
+                         :user_name => current_user.username,  
+                         :boards => current_user.boards
+                        }.to_json.html_safe  
+                    %>;
+var router_option = 1;
+var user_boards = <%= current_user.boards.to_json.html_safe %>;
+
+console.log(current_user);
+  $(document).ready(function(){
+  TrolleApp.initialize();
+  });
+</script>

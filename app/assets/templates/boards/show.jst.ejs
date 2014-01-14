@@ -1,0 +1,48 @@
+<% var url = "/boards/" + board.model.id + "/lists" %>
+<div id="visible_board">
+<nav class="ink-navigation hide-small">
+  <ul class="menu horizontal flat rounded shadowed grey" id="home_menu">
+    <form class="ink-form" id="listMenu" action=<%=url%> method="post">
+    <li><a id="listForm" href="#">Create New List</a></li>
+    </form>
+  </ul>
+</nav>
+  
+  <div id="boardTitle">
+    <%= board.model.boardtitle %>
+ 
+    <div class="lists">
+      <% for (var i = 0; i < data.lists.length; i++){%>
+        <div class="listOfLists" id="list<%= data.lists[i].id%>"> 
+          <div id="listButtonHolder">
+            <div class="createCard">
+              <button 
+                class="ink-button red" id="addCard<%=data.lists[i].id%>"> + 
+              </button>
+            </div>  
+            <div class="deleteAList">
+              <button 
+                class="ink-button blue" id="deleteList<%=data.lists[i].id%>"> X 
+              </button>
+            </div>
+          </div>
+          <%= data.lists[i].listtitle %>
+          <% var cards = data.lists[i].cards %>
+          <% if(cards.length > 0){ %>
+            <% for(var j = 0; j < cards.length; j++){%>
+              <div class="cards">
+                <div style="height: 200px;
+                  width: 250px;
+                  background-color: #F00;
+                  margin: 10px;
+                  border-radius: 10px;" id="cards<%=cards[j].id%>">
+                  <%= cards[j].cardtitle%>
+                </div>
+              </div>
+            <%}%>
+          <%}%>
+        </div>
+      <%};%>
+     </div>
+  </div>
+</div>
